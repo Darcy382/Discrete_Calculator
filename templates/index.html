@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discrete Function Calculator</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div class="w3-row">
+  <div class="w3-content" style="width:700px">
+    <div class="w3-card-4 w3-margin">
+      <div class="w3-container w3-teal">
+        <h2>Euclidean's Algorithm</h2>
+      </div>
+      <form action="/euclideanAlgo" method="post" class="w3-container w3-padding-32">
+        <label>Number 1
+        <input class="w3-input" type="text" name="num1">
+        </label>
+
+        <label>Number 2
+        <input class="w3-input" type="text" name="num2">
+        </label>
+        <button class="w3-btn w3-teal w3-margin-top" type="submit" value="euclideanAlgo">Calculate</button>
+      </form>
+    </div>
+    {% block euclean_display %}
+    {% endblock %}
+  </div>
+</div>
+</body>
+</html>
