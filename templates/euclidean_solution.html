@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+{% block solution %}
+<script>
+document.getElementById("euclidean-num1").value = {{ num1 }}
+document.getElementById("euclidean-num2").value = {{ num2 }}
+</script>
+<div class="w3-container w3-light-gray">
+  <h2 class="w3-text-teal">Solution</h2>
+</div>
+{% for i, c, q, m, r, s, t in table[:-1] %}
+  <p class="w3-margin">{{ "{} = {}({}) + {}".format(c, q, m, r) }}</p>
+{% endfor %}
+  <p style="padding-bottom: 5px"></p>
+{% endblock %}

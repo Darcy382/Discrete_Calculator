@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block solution %}
+<script>
+document.getElementById("euclidean-num1").value = {{ num1 }}
+document.getElementById("euclidean-num2").value = {{ fromBase }}
+document.getElementById("euclidean-num2").value = {{ toBase }}
+</script>
+<p>New number = {{ output }}</p>
+{% endblock %}

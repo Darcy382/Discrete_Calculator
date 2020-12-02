@@ -13,9 +13,9 @@ def convertBases(orgBase, toBase, num):
     return "".join(new_num[::-1])
 
 def gcd(num1, num2):
-    return eucleanAlgorithum(num1,num2)[1]
+    return euclideanAlgorithum(num1, num2)[1]
 
-def eucleanAlgorithum(num1, num2, printOutput=False):
+def euclideanAlgorithum(num1, num2, printOutput=False):
     c = 0
     d = num1
     r = num2
@@ -51,7 +51,7 @@ def eucleanAlgorithum(num1, num2, printOutput=False):
     return table, gcd, s, t
 
 def findInverse(num, m):
-    table, gcd, s, t = eucleanAlgorithum(num, m)
+    table, gcd, s, t = euclideanAlgorithum(num, m)
     if gcd == 1: # Using the extended euclean algorithum
         return s
     else: # Brute force
@@ -76,7 +76,7 @@ def solveCongruence(num1, num2, m):
     >>> solveCongruence(200, 13, 1001)
     936
     '''
-    table, gcd, s, t = eucleanAlgorithum(num1, m)
+    table, gcd, s, t = euclideanAlgorithum(num1, m)
     sol = 0
     if gcd == 1: # Using the extended euclean algorithum
         return (s * num2) % m
@@ -84,7 +84,7 @@ def solveCongruence(num1, num2, m):
         num1a = num1 // gcd
         num2a = num2 // gcd
         m1 = m // gcd
-        table, gcd, s, t = eucleanAlgorithum(num1a, m1)
+        table, gcd, s, t = euclideanAlgorithum(num1a, m1)
         sol = (s * num2a) % m1
     else:
 
@@ -167,7 +167,7 @@ if __name__ == "__main__":
             print("*** Euclean Algorithum ***")
             num1 = int(input("Enter number 1: "))
             num2 = int(input("Enter number 2: "))
-            eucleanAlgorithum(num1, num2, printOutput=True)
+            euclideanAlgorithum(num1, num2, printOutput=True)
         elif selection == 3:
             print("*** Find Inverse ***\nEnter input in the form 'x mod m'")
             num = int(input("x = "))

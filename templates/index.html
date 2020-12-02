@@ -3,29 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Discrete Function Calculator</title>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+{#  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">#}
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/w3.css')}}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div class="w3-row">
-  <div class="w3-content" style="width:700px">
+<div class="w3-content w3-padding" style="max-width:700px">
+{% set function_titles = ["Euclidean's Algorithm", "Convert Bases"] %}
+{% set functions = ["euclidean_algorithum", "convert_bases"] %}
+
+{% for title in function_titles %}
+<div class="w3-row-padding">
+  <div class="w3-col w3-margin-bottom">
     <div class="w3-card-4 w3-margin">
       <div class="w3-container w3-teal">
-        <h2>Euclidean's Algorithm</h2>
+        <h2>{{ title }}</h2>
       </div>
-      <form action="/euclideanAlgo" method="post" class="w3-container w3-padding-32">
-        <label>Number 1
-        <input class="w3-input" type="text" name="num1">
-        </label>
-
-        <label>Number 2
-        <input class="w3-input" type="text" name="num2">
-        </label>
-        <button class="w3-btn w3-teal w3-margin-top" type="submit" value="euclideanAlgo">Calculate</button>
-      </form>
+      {% include 'includes/' ~ functions[loop.index - 1] ~ '.html' %}
+      {% if loop.index - 1  == solution_idx %}
+        {% block solution %}
+        {% endblock %}
+      {% endif %}
     </div>
-    {% block euclean_display %}
-    {% endblock %}
   </div>
+</div>
+{% endfor %}
+
+
 </div>
 </body>
 </html>
